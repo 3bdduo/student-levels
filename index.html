@@ -506,13 +506,13 @@
 
     /* Search & Filter Toolbar */
     .controls-card {
-      padding: 16px;
+      padding: 18px 16px;
       margin-bottom: 18px;
       background: var(--surface-elevated);
     }
     .search-row {
       position: relative;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
     .search-input {
       width: 100%;
@@ -555,39 +555,54 @@
     .search-clear.visible { display: block; }
     .search-clear:hover { color: var(--tx); }
 
-    /* Filter Chips / Tabs */
+    /* Filter Chips */
     .filter-section {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 16px;
+    }
+    .filter-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
     .chip-group-label {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 700;
       color: var(--tx-light);
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin-bottom: -4px;
+      padding-right: 2px;
     }
     .chips-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 7px;
+    }
+    /* Parts filter: always 3 columns grid */
+    .chips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
     }
     .chip {
-      padding: 6px 12px;
-      border-radius: 99px;
-      font-size: 0.82rem;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
       font-weight: 600;
       background: var(--bg);
       color: var(--tx-mut);
-      border: 1px solid var(--bd);
+      border: 1.5px solid var(--bd);
       cursor: pointer;
       transition: var(--transition);
       user-select: none;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 5px;
       font-family: inherit;
+      text-align: center;
+      white-space: nowrap;
     }
     .chip:hover {
       background: var(--bd-subtle);
@@ -598,17 +613,35 @@
       background: var(--pri);
       color: #ffffff;
       border-color: var(--pri);
-      box-shadow: 0 2px 8px rgba(14, 111, 66, 0.25);
+      box-shadow: 0 2px 8px rgba(14, 111, 66, 0.3);
     }
     .chip .badge {
-      background: rgba(255, 255, 255, 0.2);
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: rgba(255,255,255,0.22);
       padding: 1px 6px;
-      border-radius: 10px;
-      font-size: 0.72rem;
+      border-radius: 6px;
+      min-width: 22px;
+      text-align: center;
     }
     .chip:not(.active) .badge {
-      background: var(--bd);
-      color: var(--tx);
+      background: var(--bd-subtle);
+      color: var(--tx-mut);
+    }
+    /* Status chips: full width 2-column layout */
+    .chips-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .chip.chip-wide {
+      grid-column: span 2;
+    }
+    /* Divider between filter groups */
+    .filter-divider {
+      height: 1px;
+      background: var(--bd-subtle);
+      margin: 0;
     }
 
     /* List Summary & Counter */
@@ -1040,31 +1073,35 @@
 
         <!-- Filter Chips Section -->
         <div class="filter-section">
+
           <!-- Status Filters -->
-          <div>
-            <div class="chip-group-label">تصفية حسب حالة التقييم:</div>
-            <div class="chips-row" id="status-chips">
-              <button class="chip active" data-filter="all">الكل <span class="badge" id="badge-all">153</span></button>
-              <button class="chip" data-filter="none">لم يُقيّم بعد <span class="badge" id="badge-none">0</span></button>
-              <button class="chip" data-filter="up">يزيد مستوى ⬆ <span class="badge" id="badge-up">0</span></button>
-              <button class="chip" data-filter="st">ثابت ⏸ <span class="badge" id="badge-st">0</span></button>
+          <div class="filter-block">
+            <div class="chip-group-label">حالة التقييم</div>
+            <div class="chips-2col" id="status-chips">
+              <button class="chip chip-wide active" data-filter="all">الكل <span class="badge" id="badge-all">153</span></button>
+              <button class="chip" data-filter="none">لم يُقيّم <span class="badge" id="badge-none">0</span></button>
               <button class="chip" data-filter="mine">تقييماتي ⭐ <span class="badge" id="badge-mine">0</span></button>
+              <button class="chip" data-filter="up">ينتقل لأعلى ⬆ <span class="badge" id="badge-up">0</span></button>
+              <button class="chip" data-filter="st">يثبت على مستواه ⏸ <span class="badge" id="badge-st">0</span></button>
             </div>
           </div>
 
+          <div class="filter-divider"></div>
+
           <!-- Quran Parts Filters -->
-          <div>
-            <div class="chip-group-label">تصفية حسب مقدار الحفظ (الأجزاء):</div>
-            <div class="chips-row" id="parts-chips">
-              <button class="chip active" data-part="all">كل المستويات</button>
+          <div class="filter-block">
+            <div class="chip-group-label">مقدار الحفظ (الأجزاء)</div>
+            <div class="chips-grid" id="parts-chips">
+              <button class="chip" style="grid-column:span 3" data-part="all">كل المستويات</button>
               <button class="chip" data-part="3">3 أجزاء <span class="badge">92</span></button>
               <button class="chip" data-part="5">5 أجزاء <span class="badge">41</span></button>
               <button class="chip" data-part="10">10 أجزاء <span class="badge">9</span></button>
               <button class="chip" data-part="15">15 جزء <span class="badge">5</span></button>
               <button class="chip" data-part="20">20 جزء <span class="badge">3</span></button>
-              <button class="chip" data-part="30">30 جزء (القرآن كاملاً) <span class="badge">3</span></button>
+              <button class="chip" data-part="30">30 جزء <span class="badge">3</span></button>
             </div>
           </div>
+
         </div>
       </div>
 
