@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>مدرسة التربية بالقرآن الكريم | مسابقة ريحانة المدينة</title>
+  <meta name="description" content="تحديد المستوى القادم للطلاب الناجحين في مسابقة ريحانة المدينة - مدرسة التربية بالقرآن الكريم">
+  <link rel="icon" type="image/png" href="icon-512.png">
+  <link rel="apple-touch-icon" href="icon-512.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0e6f42">
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Amiri:wght@700&display=swap">
+
+  <style>
+    :root {
+      box-sizing: border-box;
+      --pri: #0e6f42;
+      --pri-hover: #095431;
+      --pri-surface: #e8f5ee;
+      --pri-text: #064024;
+      --gold: #b3820a;
+      --gold-surface: #fef7e6;
+      --up: #107e49;
+      --up-surface: #e8f8ef;
+      --up-border: #2bb36c;
+      --st: #b45309;
+      --st-surface: #fff8eb;
+      --st-border: #f59e0b;
+      --err: #c92a2a;
+      --err-surface: #ffe3e3;
+      --bg: #f4f7f4;
+      --surface: #ffffff;
+      --surface-elevated: #ffffff;
+      --tx: #1a2720;
+      --tx-mut: #5c6e64;
+      --tx-light: #899c92;
+      --bd: #d6ded7;
+      --bd-subtle: #e5ece6;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(14, 111, 66, 0.08);
+      --shadow-lg: 0 16px 36px rgba(14, 111, 66, 0.12);
+      --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="dark"] {
+      --pri: #2ecb7c;
+      --pri-hover: #4de094;
+      --pri-surface: #0a2d1d;
+      --pri-text: #a1f5c7;
+      --gold: #f5c443;
+      --gold-surface: #2b2108;
+      --up: #34d399;
+      --up-surface: #0a3320;
+      --up-border: #10b981;
+      --st: #fbbf24;
+      --st-surface: #362306;
+      --st-border: #f59e0b;
+      --err: #ff6b6b;
+      --err-surface: #381212;
+      --bg: #0c1410;
+      --surface: #141f19;
+      --surface-elevated: #1b2922;
+      --tx: #f0f7f3;
+      --tx-mut: #96a99e;
+      --tx-light: #61756a;
+      --bd: #26382f;
+      --bd-subtle: #1c2b23;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      [data-theme="auto"] {
+        --pri: #2ecb7c;
+        --pri-hover: #4de094;
+        --pri-surface: #0a2d1d;
+        --pri-text: #a1f5c7;
+        --gold: #f5c443;
+        --gold-surface: #2b2108;
+        --up: #34d399;
+        --up-surface: #0a3320;
+        --up-border: #10b981;
+        --st: #fbbf24;
+        --st-surface: #362306;
+        --st-border: #f59e0b;
+        --err: #ff6b6b;
+        --err-surface: #381212;
+        --bg: #0c1410;
+        --surface: #141f19;
+        --surface-elevated: #1b2922;
+        --tx: #f0f7f3;
+        --tx-mut: #96a99e;
+        --tx-light: #61756a;
+        --bd: #26382f;
+        --bd-subtle: #1c2b23;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+        --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+        --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    body {
+      background: var(--bg);
+      color: var(--tx);
+      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      padding-top: env(safe-area-inset-top, 0);
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+
+    /* Ambient Quranic Pattern background decoration */
+    .bg-pattern {
+      position: fixed;
+      top: 0; left: 0; right: 0; height: 320px;
+      background: radial-gradient(circle at 50% -20%, rgba(14, 111, 66, 0.15), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 18px 16px 60px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Common Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--bd);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    /* Header Component */
+    .school-header {
+      text-align: center;
+      margin-bottom: 24px;
+      padding-top: 10px;
+    }
+    .logo-container {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .logo-container::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(179, 130, 10, 0.25), transparent 70%);
+      z-index: 0;
+      animation: pulseGlow 3s ease-in-out infinite alternate;
+    }
+    @keyframes pulseGlow {
+      from { transform: scale(0.95); opacity: 0.6; }
+      to { transform: scale(1.08); opacity: 1; }
+    }
+    .school-logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 22px;
+      position: relative;
+      z-index: 1;
+      box-shadow: var(--shadow-md);
+      border: 2px solid rgba(179, 130, 10, 0.4);
+      background: var(--surface);
+      object-fit: cover;
+    }
+    .school-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--tx);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .school-title span.highlight {
+      color: var(--pri);
+    }
+    .school-subtitle {
+      font-size: 0.95rem;
+      color: var(--tx-mut);
+      font-weight: 500;
+    }
+
+    /* Top Navigation Bar */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 18px;
+      margin-bottom: 18px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--bd);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      flex-wrap: wrap;
+    }
+    .user-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--pri-surface);
+      color: var(--pri);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      border: 1px solid var(--pri-border, var(--bd));
+    }
+    .user-info {
+      line-height: 1.3;
+    }
+    .user-label {
+      font-size: 0.75rem;
+      color: var(--tx-light);
+    }
+    .user-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--tx);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-icon {
+      background: var(--bg);
+      border: 1px solid var(--bd);
+      color: var(--tx);
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 1rem;
+    }
+    .btn-icon:hover {
+      background: var(--bd-subtle);
+      border-color: var(--tx-mut);
+      transform: translateY(-1px);
+    }
+    .btn-logout {
+      background: var(--err-surface);
+      color: var(--err);
+      border: 1px solid rgba(201, 42, 42, 0.2);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: inherit;
+    }
+    .btn-logout:hover {
+      background: var(--err);
+      color: #fff;
+    }
+
+    /* Stats Overview */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--bd);
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--bd);
+    }
+    .stat-card.pri::before { background: var(--pri); }
+    .stat-card.up::before { background: var(--up); }
+    .stat-card.st::before { background: var(--st); }
+    .stat-card.mine::before { background: var(--gold); }
+
+    .stat-num {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--tx);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--tx-mut);
+      font-weight: 600;
+    }
+    .progress-box {
+      margin-top: 8px;
+      background: var(--bd-subtle);
+      border-radius: 99px;
+      height: 6px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--pri), var(--up));
+      width: 0%;
+      border-radius: 99px;
+      transition: width 0.5s ease;
+    }
+
+    /* Login Box */
+    .login-wrapper {
+      max-width: 440px;
+      margin: 10px auto 30px;
+    }
+    .login-box {
+      padding: 28px 24px;
+      border: 1px solid var(--bd);
+      border-radius: var(--radius-lg);
+      background: var(--surface-elevated);
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(12px);
+    }
+    .login-box .title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      text-align: center;
+      color: var(--tx);
+    }
+    .login-box .desc {
+      font-size: 0.88rem;
+      color: var(--tx-mut);
+      text-align: center;
+      margin-bottom: 22px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--tx);
+    }
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .input-icon {
+      position: absolute;
+      right: 14px;
+      color: var(--tx-light);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+    }
+    .input-field {
+      width: 100%;
+      padding: 12px 42px 12px 14px;
+      border: 1.5px solid var(--bd);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--tx);
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: var(--transition);
+      outline: none;
+    }
+    .input-field:focus {
+      border-color: var(--pri);
+      box-shadow: 0 0 0 3px rgba(14, 111, 66, 0.15);
+      background: var(--surface);
+    }
+    .btn-toggle-pwd {
+      position: absolute;
+      left: 10px;
+      background: transparent;
+      border: none;
+      color: var(--tx-mut);
+      padding: 6px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .btn-toggle-pwd:hover {
+      color: var(--pri);
+      background: var(--bd-subtle);
+    }
+    .remember-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: var(--tx-mut);
+      cursor: pointer;
+      user-select: none;
+    }
+    .remember-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--pri);
+      cursor: pointer;
+    }
+    .btn-submit {
+      width: 100%;
+      padding: 13px 20px;
+      background: linear-gradient(135deg, var(--pri), var(--pri-hover));
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(14, 111, 66, 0.25);
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-submit:hover {
+      box-shadow: 0 6px 20px rgba(14, 111, 66, 0.35);
+      transform: translateY(-1px);
+    }
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .login-hint {
+      margin-top: 18px;
+      padding: 10px 14px;
+      background: var(--bd-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      color: var(--tx-mut);
+      text-align: center;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Search & Filter Toolbar */
+    .controls-card {
+      padding: 16px;
+      margin-bottom: 18px;
+      background: var(--surface-elevated);
+    }
+    .search-row {
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 42px 12px 38px;
+      border: 1.5px solid var(--bd);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--tx);
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: var(--transition);
+      outline: none;
+    }
+    .search-input:focus {
+      border-color: var(--pri);
+      box-shadow: 0 0 0 3px rgba(14, 111, 66, 0.12);
+      background: var(--surface);
+    }
+    .search-icon {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--tx-light);
+      pointer-events: none;
+    }
+    .search-clear {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--tx-light);
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 4px;
+      display: none;
+    }
+    .search-clear.visible { display: block; }
+    .search-clear:hover { color: var(--tx); }
+
+    /* Filter Chips / Tabs */
+    .filter-section {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .chip-group-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--tx-light);
+      text-transform: uppercase;
+      margin-bottom: -4px;
+    }
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .chip {
+      padding: 6px 12px;
+      border-radius: 99px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: var(--bg);
+      color: var(--tx-mut);
+      border: 1px solid var(--bd);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: inherit;
+    }
+    .chip:hover {
+      background: var(--bd-subtle);
+      color: var(--tx);
+      border-color: var(--tx-mut);
+    }
+    .chip.active {
+      background: var(--pri);
+      color: #ffffff;
+      border-color: var(--pri);
+      box-shadow: 0 2px 8px rgba(14, 111, 66, 0.25);
+    }
+    .chip .badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-size: 0.72rem;
+    }
+    .chip:not(.active) .badge {
+      background: var(--bd);
+      color: var(--tx);
+    }
+
+    /* List Summary & Counter */
+    .list-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+      color: var(--tx-mut);
+      padding: 0 4px;
+    }
+    .btn-print {
+      background: transparent;
+      border: 1px solid var(--bd);
+      color: var(--tx);
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .btn-print:hover {
+      background: var(--surface-elevated);
+      border-color: var(--pri);
+      color: var(--pri);
+    }
+
+    /* Student Cards */
+    .student-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .student-card {
+      padding: 16px 18px;
+      position: relative;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      border: 1px solid var(--bd);
+    }
+    .student-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: rgba(14, 111, 66, 0.3);
+      transform: translateY(-1px);
+    }
+    .student-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .student-identity {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+    .student-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid var(--bd);
+      color: var(--tx-mut);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .student-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--tx);
+      line-height: 1.3;
+    }
+    .student-badges {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .tag-parts {
+      background: var(--pri-surface);
+      color: var(--pri);
+      border: 1px solid rgba(14, 111, 66, 0.2);
+    }
+    .tag-score {
+      background: var(--gold-surface);
+      color: var(--gold);
+      border: 1px solid rgba(179, 130, 10, 0.25);
+    }
+
+    /* Decision Buttons */
+    .decision-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .btn-decision {
+      padding: 11px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--bg);
+      color: var(--tx);
+      border: 1.5px solid var(--bd);
+      transition: var(--transition);
+      user-select: none;
+    }
+    .btn-decision:hover:not(:disabled) {
+      border-color: var(--tx-mut);
+      transform: translateY(-1px);
+    }
+    .btn-decision.up:hover:not(:disabled) {
+      background: var(--up-surface);
+      border-color: var(--up-border);
+      color: var(--up);
+    }
+    .btn-decision.st:hover:not(:disabled) {
+      background: var(--st-surface);
+      border-color: var(--st-border);
+      color: var(--st);
+    }
+
+    /* Selected state */
+    .btn-decision.active.up {
+      background: var(--up-surface);
+      color: var(--up);
+      border-color: var(--up-border);
+      box-shadow: 0 0 0 2px var(--up-border);
+    }
+    .btn-decision.active.st {
+      background: var(--st-surface);
+      color: var(--st);
+      border-color: var(--st-border);
+      box-shadow: 0 0 0 2px var(--st-border);
+    }
+    .btn-decision:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Evaluation Status info */
+    .eval-meta {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--bd-subtle);
+      font-size: 0.82rem;
+      color: var(--tx-mut);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .eval-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 600;
+    }
+    .eval-status-pill.up { color: var(--up); }
+    .eval-status-pill.st { color: var(--st); }
+    .eval-status-pill.none { color: var(--tx-light); }
+    .eval-lock-note {
+      font-size: 0.78rem;
+      color: var(--tx-mut);
+      background: var(--bd-subtle);
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Error & Alert messages */
+    .alert-banner {
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+    .alert-banner.err {
+      background: var(--err-surface);
+      color: var(--err);
+      border: 1px solid rgba(201, 42, 42, 0.2);
+    }
+    .alert-banner.info {
+      background: var(--gold-surface);
+      color: var(--gold);
+      border: 1px solid rgba(179, 130, 10, 0.2);
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .toast {
+      background: var(--surface-elevated);
+      color: var(--tx);
+      border: 1px solid var(--bd);
+      border-radius: 99px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      animation: toastIn 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      pointer-events: auto;
+    }
+    @keyframes toastIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .toast.success { border-color: var(--up); color: var(--up); }
+    .toast.error { border-color: var(--err); color: var(--err); }
+
+    /* Scroll to Top floating button */
+    .btn-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--pri);
+      color: #ffffff;
+      border: none;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      z-index: 100;
+    }
+    .btn-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .btn-top:hover {
+      background: var(--pri-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Print Styles */
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      .bg-pattern, .top-bar, .controls-card, .btn-top, .toast-container, .btn-logout, .btn-icon, .btn-print {
+        display: none !important;
+      }
+      .wrap { max-width: 100% !important; padding: 0 !important; }
+      .card { border: 1px solid #ccc !important; box-shadow: none !important; page-break-inside: avoid; }
+      .decision-row { display: none !important; }
+      .eval-meta { border: none !important; font-size: 10pt !important; }
+      .school-header { margin-bottom: 10px; }
+      .school-title { font-size: 18pt; }
+    }
+
+    .hide { display: none !important; }
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--tx-mut);
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-pattern"></div>
+
+  <div class="wrap">
+    <!-- Header with Official Logo -->
+    <header class="school-header">
+      <div class="logo-container">
+        <img src="icon-512.png" onerror="this.src='public/icon-512.png'" alt="شعار مدرسة التربية بالقرآن الكريم" class="school-logo">
+      </div>
+      <h1 class="school-title">
+        <span>مدرسة</span> <span class="highlight">التربية بالقرآن الكريم</span>
+      </h1>
+      <p class="school-subtitle">تحديد المستوى القادم للطلاب الناجحين في مسابقة ريحانة المدينة</p>
+    </header>
+
+    <!-- Login Section -->
+    <div id="login-section" class="login-wrapper">
+      <div class="card login-box">
+        <h2 class="title">تسجيل دخول المعلمين والمعلمات</h2>
+        <p class="desc">ادخل اسمك والكود السري للمشاركة في تحديد مستويات الطلاب</p>
+
+        <div id="login-alert" class="alert-banner err hide"></div>
+
+        <form id="login-form" onsubmit="return false;">
+          <div class="form-group">
+            <label class="form-label" for="tname">اسم المعلم / المعلمة</label>
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+              <input id="tname" class="input-field" placeholder="مثال: أستاذ أحمد محمود" autocomplete="name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tcode">كود المعلمين السري</label>
+            <div class="input-wrapper">
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <input id="tcode" type="password" class="input-field" placeholder="ادخل الكود السري" autocomplete="current-password" required>
+              <button type="button" id="toggle-pwd" class="btn-toggle-pwd" title="إظهار / إخفاء الكود" aria-label="إظهار / إخفاء الكود">
+                <svg id="eye-icon-show" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+                <svg id="eye-icon-hide" class="hide" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <label class="remember-row">
+            <input type="checkbox" id="remember-me" checked>
+            <span>تذكر بياناتي على هذا الجهاز لسهولة الدخول</span>
+          </label>
+
+          <button type="submit" id="btn-login" class="btn-submit">
+            <span>دخول المنظومة</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Application Dashboard (Shown after Login) -->
+    <div id="app-section" class="hide">
+      <!-- Top Action Bar -->
+      <div class="top-bar">
+        <div class="user-pill">
+          <div class="user-avatar" id="avatar-initial">م</div>
+          <div class="user-info">
+            <div class="user-label">المعلم المسجل حالياً</div>
+            <div class="user-name" id="teacher-display"></div>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <button id="btn-theme" class="btn-icon" title="تبديل الوضع الليلي / الفاتح" aria-label="تبديل المظهر">
+            <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button id="btn-logout" class="btn-logout" title="تسجيل الخروج">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <span>خروج</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Database Config Notice (if testing locally or Redis not connected) -->
+      <div id="db-alert" class="alert-banner info hide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span id="db-alert-text">قاعدة بيانات Upstash Redis غير متصلة بعد - التطبيق يعمل في وضع المعاينة المؤقت لحفظ التقييمات محلياً.</span>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card pri">
+          <div class="stat-num" id="stat-total">153</div>
+          <div class="stat-label">إجمالي الطلاب</div>
+        </div>
+
+        <div class="stat-card up">
+          <div class="stat-num" id="stat-recorded">0</div>
+          <div class="stat-label">تم تحديد مستواهم (<span id="stat-percent">0%</span>)</div>
+          <div class="progress-box">
+            <div class="progress-bar" id="stat-progress"></div>
+          </div>
+        </div>
+
+        <div class="stat-card up">
+          <div class="stat-num" id="stat-up">0</div>
+          <div class="stat-label">ينتقل لمستوى أعلى ⬆</div>
+        </div>
+
+        <div class="stat-card st">
+          <div class="stat-num" id="stat-st">0</div>
+          <div class="stat-label">يبقى في مستواه ⏸</div>
+        </div>
+
+        <div class="stat-card mine">
+          <div class="stat-num" id="stat-mine">0</div>
+          <div class="stat-label">سجلتهم أنت ⭐</div>
+        </div>
+      </div>
+
+      <!-- Search & Filters Card -->
+      <div class="card controls-card">
+        <!-- Search Input -->
+        <div class="search-row">
+          <span class="search-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
+          <input id="search-input" class="search-input" placeholder="ابحث باسم الطالب أو جزء من الاسم..." autocomplete="off">
+          <button id="search-clear" class="search-clear" title="مسح البحث">&times;</button>
+        </div>
+
+        <!-- Filter Chips Section -->
+        <div class="filter-section">
+          <!-- Status Filters -->
+          <div>
+            <div class="chip-group-label">تصفية حسب حالة التقييم:</div>
+            <div class="chips-row" id="status-chips">
+              <button class="chip active" data-filter="all">الكل <span class="badge" id="badge-all">153</span></button>
+              <button class="chip" data-filter="none">لم يُقيّم بعد <span class="badge" id="badge-none">0</span></button>
+              <button class="chip" data-filter="up">يزيد مستوى ⬆ <span class="badge" id="badge-up">0</span></button>
+              <button class="chip" data-filter="st">ثابت ⏸ <span class="badge" id="badge-st">0</span></button>
+              <button class="chip" data-filter="mine">تقييماتي ⭐ <span class="badge" id="badge-mine">0</span></button>
+            </div>
+          </div>
+
+          <!-- Quran Parts Filters -->
+          <div>
+            <div class="chip-group-label">تصفية حسب مقدار الحفظ (الأجزاء):</div>
+            <div class="chips-row" id="parts-chips">
+              <button class="chip active" data-part="all">كل المستويات</button>
+              <button class="chip" data-part="3">3 أجزاء <span class="badge">92</span></button>
+              <button class="chip" data-part="5">5 أجزاء <span class="badge">41</span></button>
+              <button class="chip" data-part="10">10 أجزاء <span class="badge">9</span></button>
+              <button class="chip" data-part="15">15 جزء <span class="badge">5</span></button>
+              <button class="chip" data-part="20">20 جزء <span class="badge">3</span></button>
+              <button class="chip" data-part="30">30 جزء (القرآن كاملاً) <span class="badge">3</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action & Counter Header -->
+      <div class="list-meta">
+        <div>
+          <span>عرض </span><b id="visible-count">153</b><span> طالب</span>
+        </div>
+        <div>
+          <button id="btn-print" class="btn-print" title="طباعة كشف التقييمات">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <span>طباعة الكشف</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Global Error / Warning -->
+      <div id="global-alert" class="alert-banner err hide"></div>
+
+      <!-- Students Card List -->
+      <div id="student-list" class="student-list">
+        <div class="empty-state">جاري تحميل كشوف الطلاب...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification element -->
+  <div class="toast-container" id="toast-box"></div>
+
+  <!-- Scroll to Top button -->
+  <button id="btn-top" class="btn-top" title="الرجوع للأعلى" aria-label="الرجوع للأعلى">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script>
+    // RAW Data of Students
+    var RAW = "#3\n"+
+    "ريهام عباس محمد سعد|97\nرحمه اسماعيل حجاج اسماعيل|96\nفارس ربيع ابو الخير فهيم|96\nاسماء احمد فرج عبدالصالحين|96\nاميمة محمد عبدالحميد عبدالجواد|96\nريتال احمد رمضان صديق|96\nاسر احمد رمضان عبدالرحمن|95\nرودينا سيد حامد سيد|95\nريتاج عصام عبدالحميد صابر|95\nعبدالله مصطفي فاروق علي|95\nنعمه فضالي عويس عثمان|95\nايمان صالح عيسي عبدالجواد|95\nاحمد رمضان سيد قرني|95\nاحمد عبدالعاطي عبدالمعطي محمود|95\nحنين عبدالفتاح مفتاح عبدالحفيظ|95\nساميه رمضان سيد سيد|95\nفاطمة احمد فتحي محمد|95\nنوران محمود عويس محمود|95\nياسمين عماد سلامة عبدالكريم|95\nيوسف محمود خليل ابراهيم|95\nفاطمة شريف حسين علي|95\nالاء حسين عبدالواحد محمد|94\nريم وليد سيد خالد|94\nزهراء سامي عبدالمعطي محمود|94\nفاطمة محمود زكريا سليمان|94\nالاء محمد عويس جنيدي|93\nاحلام عبدالعال علي سيد|93\nجيداء حماده سلامه سيد|93\nمصطفي علاء جابر سيد|93\nرافت احمد رشاد حسن|93\nمحمد سيد حامد سيد|93\nناهد عبدالستار حامد سيد|93\nاحمد ربيع عبدالحميد محمد|92\nرحيق علي سليمان علي|92\nفاتن شحاته عبدالوهاب مرزوق|92\nمحمد وجيه عباس احمد|92\nالاء رمضان علي عبدالكريم|92\nحبوبه حمدي ادريس علي|92\nحسناء عبدالعاطي عبدالمعطي محمود|92\nروضة مصطفي قرني محمد|92\nزياد سيد محمد سيد|92\nزياد عبدالنبي شعبان شحاتة|92\nسما سلامة عبدالفتاح حامد|92\nعبدالله محمد سيد يس|92\nمحمد محمود عبدالحليم محمد|92\nنبيله رمضان عبدالوهاب جنيدي|92\nنورا سيد حفني حسن|92\nوفاء طه حلمي عبدالوهاب|92\nايه سعد محمد سعد|91\nبثينه حسين سيد عبدالعزيز|91\nسلمي احمد وفيق محمود زيدان|91\nعمر مصطفي قرني محمد|91\nكريم محمد جابر حسين|91\nهبه رمضان محمد احمد|91\nاحمد محمد حمدي محمد|91\nاية خالد وجيه فاروق|91\nرجاء ابو الخير عيسي عبدالجواد|91\nروان عباس محمد سعد|91\nرودينا قرني عبدالرحمن محمد|91\nروميساء عباس احمد عباس|91\nسلوي مفتاح محمد فرغلي|91\nصابرين محمود جابر عبدالمعطي|91\nعائشة جابر ابو المكارم عبدالعزيز|91\nعبدالرحمن محمود سيد حسين|91\nلوجينا ياسر عيد فاروق|91\nمحمد علاء محمد قرني|91\nمروة مصطفي علي عبدالعزيز|91\nملك سلامة جمعة سيد|91\nنجلاء جابر صادق محمد|91\nحنين محمد مفتاح محمد|90\nرقيه حسني احمد عبداللطيف|90\nزينب عبدالمنعم عويس معوض|90\nشهاب اشرف خميس عبدالجواد|90\nمحمد فتحي جابر امام|90\nمعتز عبدالنبي شعبان شحاته|90\nيوسف حماده يحيى جابر|90\nآدم سعد شعبان سعد|90\nاسماء عيد عبدالغفار عبدالتواب|90\nبسملة احمد عادل سيد|90\nجني محمود فتحي امين|90\nحنين مصطفي محمد محمود|90\nحور منصور سيد عبدالسلام|90\nرؤي احمد رمضان صديق|90\nريم حمادة فتحي ابو النجا|90\nزياد محمد علي عبدالكريم|90\nسحر محمد عويس مصطفي|90\nسما عبدالنبي رجب سعد|90\nعزة فتحي عبدالتواب عوض|90\nعمر محمد وفيق محمود|90\nمحمد ابو زيد سلامة عبدالكريم|90\nنجلاء عبدالفتاح علي عبدالماجد|90\nنسمة عادل سيد حسين|90\n"+
+    "#5\nجني رجب فتحي سيد|96\nريماس محمد عبدالعزيز صادق|95\nهنا محمود حمدي احمد|95\nحنين سيد عويس قطب|93\nرودينا محمود صالح عيسي|93\nشروق فتحي مفتاح عبدالحفيظ|93\nسمر شريف حسين علي|92\nاسراء محمود عبدالفضيل عبدالحميد|91\nانس احمد محمد احمد عبدالعليم|91\nاية عماد شعبان محب|91\nجني محمود حمدي احمد|91\nحبيبة محمد عرفات سيد|91\nحمزة محمد زكريا سليمان|91\nرحمة محمد عرفات سيد|91\nرحيق محمد شحاتة متولي|91\nرضا عرفة عطية ميزار|91\nروان محمد رجب كامل|91\nرودينا احمد يوسف ابراهيم|91\nرويدا وليد سيد خالد|91\nريم عبدالمنعم سيد احمد|91\nصفاء هاني محمد توفيق|91\nعلي محمود عبدالفضيل عبدالحميد|91\nابرار سلامة ابراهيم امين|90\nايمان شوقي احمد محمد|90\nاروي ابراهيم عبدالسلام حسن|90\nاسيل عصام عبدالحميد صابر|90\nجني رمضان مصطفي حسن|90\nجومانا علاء عبدالوهاب عبدالعزيز|90\nحبيبة سيد محمود محمد|90\nحمزة محمود عبدالحليم محمد|90\nحنين احمد عيد سلطان|90\nحنين عاطف احمد علي|90\nرقية احمد عويس عبدالله|90\nروضة ربيع قرني هبار|90\nشروق اشرف محمد قرني|90\nمحمد عماد شعبان محب|90\nمريم محمد فضالي عويس|90\nملك اسلام محمود جابر|90\nملك محمد علي حسين|90\nياسمين محمود شعبان محمد|90\nيمني حامد عبدالنبي داود|90\n"+
+    "#10\nرودينه محمد شعبان عبدالوهاب|95\nانس وليد عبدالعظيم عبدالسلام|93\nمني رجب محمد محمد|93\nاحمد محمد حسين سلامة|92\nجنة احمد سيد خميس|92\nرفيده عبدالحليم قرني هبار|91\nسلمي عصام عبدالعظيم معوض|91\nاحمد نبيل فتحي عبدالسلام|90\nمالك محمود عبدالحليم محمد|90\n"+
+    "#15\nمنة عيد عبدالوهاب عبدالحميد|95\nمؤمن محمد عبدالعظيم معوض|92\nعمار حسين فضالي عويس|91\nشهنده حمادة عبدالفتاح حامد|90\nيارا رمضان عبدالوهاب جنيدي|90\n"+
+    "#20\nملك سلامة عبدالوهاب عبدالحميد|95\nحبيبة تامر رمضان عويس|93\nمنال مصطفي جاب الله حسين|90\n"+
+    "#30\nحبيبة احمد سيد حفني|100\nفاطمة شوقي احمد محمد|95\nرحمة عصام عبدالعظيم معوض|93\n";
+
+    // Parse Students
+    var STUDENTS = [];
+    var curParts = 0;
+    RAW.split("\n").forEach(function(line) {
+      line = line.trim();
+      if (!line) return;
+      if (line.charAt(0) === "#") {
+        curParts = parseInt(line.slice(1), 10) || 0;
+        return;
+      }
+      var parts = line.split("|");
+      var idx = STUDENTS.length + 1;
+      STUDENTS.push({
+        id: "s" + idx,
+        num: idx,
+        name: parts[0] || "",
+        score: parts[1] || "",
+        parts: curParts
+      });
+    });
+
+    // App State
+    var teacher = null;
+    var code = null;
+    var choices = {};
+    var busy = {};
+    var loaded = false;
+    var syncTimer = null;
+    var currentStatusFilter = "all";
+    var currentPartFilter = "all";
+    var isDemoMode = false;
+
+    // Helpers
+    function $(id) { return document.getElementById(id); }
+    function esc(s) {
+      var d = document.createElement("div");
+      d.textContent = s || "";
+      return d.innerHTML;
+    }
+    function safeText(str) {
+      return String(str || "").trim().replace(/\s+/g, " ");
+    }
+    function fmtDate(ts) {
+      if (!ts) return "";
+      try {
+        var d = new Date(ts);
+        return d.toLocaleDateString("ar-EG", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+      } catch (e) {
+        return "";
+      }
+    }
+    function showToast(msg, type) {
+      var box = $("toast-box");
+      var t = document.createElement("div");
+      t.className = "toast " + (type || "success");
+      t.textContent = msg;
+      box.appendChild(t);
+      setTimeout(function() {
+        t.style.opacity = "0";
+        t.style.transform = "translateY(10px)";
+        t.style.transition = "all 0.3s ease";
+        setTimeout(function() { if (t.parentNode) t.parentNode.removeChild(t); }, 300);
+      }, 3500);
+    }
+
+    // Local Storage
+    function getStore(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function setStore(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+    function delStore(k) { try { localStorage.removeItem(k); } catch (e) {} }
+
+    // Password Visibility Toggle
+    var pwdInput = $("tcode");
+    var togglePwdBtn = $("toggle-pwd");
+    var eyeShow = $("eye-icon-show");
+    var eyeHide = $("eye-icon-hide");
+
+    togglePwdBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      if (pwdInput.type === "password") {
+        pwdInput.type = "text";
+        eyeShow.classList.add("hide");
+        eyeHide.classList.remove("hide");
+      } else {
+        pwdInput.type = "password";
+        eyeShow.classList.remove("hide");
+        eyeHide.classList.add("hide");
+      }
+      pwdInput.focus();
+    });
+
+    // Theme Switcher
+    var themeBtn = $("btn-theme");
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      setStore("theme_pref", theme);
+    }
+    themeBtn.addEventListener("click", function() {
+      var cur = document.documentElement.getAttribute("data-theme");
+      var next = (cur === "dark") ? "light" : "dark";
+      applyTheme(next);
+    });
+    var savedTheme = getStore("theme_pref");
+    if (savedTheme) applyTheme(savedTheme);
+
+    // API Layer
+    async function apiRequest(method, body) {
+      if (isDemoMode) {
+        // Fallback demo storage in local preview
+        if (method === "GET") {
+          var demo = getStore("demo_choices");
+          return { choices: demo ? JSON.parse(demo) : {} };
+        }
+        if (method === "POST") {
+          var demoData = getStore("demo_choices");
+          var cMap = demoData ? JSON.parse(demoData) : {};
+          if (cMap[body.id] && cMap[body.id].teacher !== body.teacher) {
+            var err = new Error("locked");
+            err.status = 409;
+            err.info = { by: cMap[body.id].teacher };
+            throw err;
+          }
+          cMap[body.id] = { decision: body.decision, teacher: body.teacher, ts: Date.now() };
+          setStore("demo_choices", JSON.stringify(cMap));
+          return { ok: true };
+        }
+      }
+
+      var res = await fetch("/api/choices", {
+        method: method,
+        headers: {
+          "Content-Type": "application/json",
+          "x-code": code
+        },
+        body: body ? JSON.stringify(body) : undefined
+      });
+
+      var data = {};
+      try { data = await res.json(); } catch (e) {}
+
+      if (!res.ok) {
+        var err = new Error(data.error || "error");
+        err.status = res.status;
+        err.info = data;
+        throw err;
+      }
+      return data;
+    }
+
+    async function loadChoices() {
+      try {
+        var res = await apiRequest("GET");
+        choices = res.choices || {};
+        loaded = true;
+        render();
+      } catch (e) {
+        if (e.info && e.info.error === "database_not_configured") {
+          // Redis not configured on Vercel yet
+          isDemoMode = true;
+          $("db-alert").classList.remove("hide");
+          var local = getStore("demo_choices");
+          choices = local ? JSON.parse(local) : {};
+          loaded = true;
+          render();
+        } else {
+          throw e;
+        }
+      }
+    }
+
+    // Login Action
+    async function doLogin() {
+      var n = safeText($("tname").value);
+      var c = $("tcode").value.trim();
+      var alertBox = $("login-alert");
+
+      if (!n) {
+        alertBox.textContent = "يرجى كتابة اسم المعلم أو المعلمة";
+        alertBox.classList.remove("hide");
+        $("tname").focus();
+        return;
+      }
+      if (!c) {
+        alertBox.textContent = "يرجى إدخال كود المعلمين السري";
+        alertBox.classList.remove("hide");
+        $("tcode").focus();
+        return;
+      }
+
+      alertBox.classList.add("hide");
+      var btn = $("btn-login");
+      btn.disabled = true;
+      btn.firstElementChild.textContent = "جاري التحقق...";
+
+      teacher = n;
+      code = c;
+
+      try {
+        await loadChoices();
+
+        if ($("remember-me").checked) {
+          setStore("teacher_name", teacher);
+          setStore("teacher_code", code);
+        } else {
+          delStore("teacher_name");
+          delStore("teacher_code");
+        }
+
+        enterDashboard();
+        showToast("مرحباً بك أستاذ " + teacher, "success");
+      } catch (err) {
+        btn.disabled = false;
+        btn.firstElementChild.textContent = "دخول المنظومة";
+        alertBox.classList.remove("hide");
+        if (err.status === 401) {
+          alertBox.textContent = "كود المعلمين غير صحيح. الكود الافتراضي هو 123123";
+        } else {
+          alertBox.textContent = "تعذر الاتصال بالخادم. تأكد من اتصال الإنترنت ثم حاول ثانية.";
+        }
+      }
+    }
+
+    function enterDashboard() {
+      $("login-section").classList.add("hide");
+      $("app-section").classList.remove("hide");
+
+      $("teacher-display").textContent = teacher;
+      $("avatar-initial").textContent = teacher.charAt(0);
+
+      render();
+
+      if (!syncTimer) {
+        syncTimer = setInterval(function() {
+          if (!Object.keys(busy).length && !isDemoMode) {
+            loadChoices().catch(function() {});
+          }
+        }, 10000);
+      }
+    }
+
+    $("login-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      doLogin();
+    });
+
+    $("btn-logout").addEventListener("click", function() {
+      delStore("teacher_name");
+      delStore("teacher_code");
+      location.reload();
+    });
+
+    // Auto-fill remembered credentials
+    var savedName = getStore("teacher_name");
+    var savedCode = getStore("teacher_code");
+    if (savedName) $("tname").value = savedName;
+    if (savedCode) $("tcode").value = savedCode;
+
+    // Search & Filter Listeners
+    var searchInput = $("search-input");
+    var searchClear = $("search-clear");
+
+    searchInput.addEventListener("input", function() {
+      if (this.value) {
+        searchClear.classList.add("visible");
+      } else {
+        searchClear.classList.remove("visible");
+      }
+      render();
+    });
+
+    searchClear.addEventListener("click", function() {
+      searchInput.value = "";
+      searchClear.classList.remove("visible");
+      searchInput.focus();
+      render();
+    });
+
+    // Filter Chips Events
+    $("status-chips").addEventListener("click", function(e) {
+      var chip = e.target.closest(".chip");
+      if (!chip) return;
+      var chips = this.querySelectorAll(".chip");
+      chips.forEach(function(c) { c.classList.remove("active"); });
+      chip.classList.add("active");
+      currentStatusFilter = chip.dataset.filter;
+      render();
+    });
+
+    $("parts-chips").addEventListener("click", function(e) {
+      var chip = e.target.closest(".chip");
+      if (!chip) return;
+      var chips = this.querySelectorAll(".chip");
+      chips.forEach(function(c) { c.classList.remove("active"); });
+      chip.classList.add("active");
+      currentPartFilter = chip.dataset.part;
+      render();
+    });
+
+    // Print Button
+    $("btn-print").addEventListener("click", function() {
+      window.print();
+    });
+
+    // Scroll to Top Button
+    var btnTop = $("btn-top");
+    window.addEventListener("scroll", function() {
+      if (window.scrollY > 300) {
+        btnTop.classList.add("visible");
+      } else {
+        btnTop.classList.remove("visible");
+      }
+    });
+    btnTop.addEventListener("click", function() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Main Render Function
+    function render() {
+      if (!teacher) return;
+
+      var q = searchInput.value.trim().toLowerCase();
+      var recCount = 0;
+      var mineCount = 0;
+      var upCount = 0;
+      var stCount = 0;
+
+      STUDENTS.forEach(function(s) {
+        var c = choices[s.id];
+        if (c) {
+          recCount++;
+          if (c.decision === "up") upCount++;
+          if (c.decision === "st") stCount++;
+          if (c.teacher === teacher) mineCount++;
+        }
+      });
+
+      var total = STUDENTS.length;
+      var noneCount = total - recCount;
+      var percent = Math.round((recCount / total) * 100);
+
+      // Update Metric Counters
+      $("stat-total").textContent = total;
+      $("stat-recorded").textContent = recCount;
+      $("stat-percent").textContent = percent + "%";
+      $("stat-progress").style.width = percent + "%";
+      $("stat-up").textContent = upCount;
+      $("stat-st").textContent = stCount;
+      $("stat-mine").textContent = mineCount;
+
+      // Update Chip Badges
+      $("badge-all").textContent = total;
+      $("badge-none").textContent = noneCount;
+      $("badge-up").textContent = upCount;
+      $("badge-st").textContent = stCount;
+      $("badge-mine").textContent = mineCount;
+
+      if (!loaded) return;
+
+      var html = "";
+      var visibleTotal = 0;
+
+      STUDENTS.forEach(function(s) {
+        var c = choices[s.id];
+
+        // Search Match
+        if (q && s.name.toLowerCase().indexOf(q) === -1) return;
+
+        // Status Filter
+        if (currentStatusFilter === "none" && c) return;
+        if (currentStatusFilter === "up" && (!c || c.decision !== "up")) return;
+        if (currentStatusFilter === "st" && (!c || c.decision !== "st")) return;
+        if (currentStatusFilter === "mine" && (!c || c.teacher !== teacher)) return;
+
+        // Part Filter
+        if (currentPartFilter !== "all" && String(s.parts) !== currentPartFilter) return;
+
+        visibleTotal++;
+
+        var locked = c && c.teacher !== teacher;
+        var isBusy = !!busy[s.id];
+        var isUp = c && c.decision === "up";
+        var isSt = c && c.decision === "st";
+
+        html += '<div class="card student-card">' +
+          '<div class="student-header">' +
+            '<div class="student-identity">' +
+              '<div class="student-number">#' + s.num + '</div>' +
+              '<div>' +
+                '<div class="student-name">' + esc(s.name) + '</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="student-badges">' +
+              '<span class="tag tag-parts">📖 ' + s.parts + ' أجزاء</span>' +
+              '<span class="tag tag-score">★ ' + esc(s.score) + ' درجة</span>' +
+            '</div>' +
+          '</div>' +
+
+          '<div class="decision-row">' +
+            '<button type="button" class="btn-decision up' + (isUp ? ' active' : '') + '" data-id="' + s.id + '" data-d="up"' + (locked || isBusy ? ' disabled' : '') + '>' +
+              '<span>⬆ يزيد مستوى</span>' +
+            '</button>' +
+            '<button type="button" class="btn-decision st' + (isSt ? ' active' : '') + '" data-id="' + s.id + '" data-d="st"' + (locked || isBusy ? ' disabled' : '') + '>' +
+              '<span>⏸ يثبت على مستواه</span>' +
+            '</button>' +
+          '</div>' +
+
+          '<div class="eval-meta">' +
+            (c ?
+              ('<div class="eval-status-pill ' + c.decision + '">' +
+                (c.decision === 'up' ? '✓ تم التقييم: زيادة مستوى' : '✓ تم التقييم: يثبت على مستواه') +
+                ' · بواسطة الأستاذ(ة): <b>' + esc(c.teacher) + '</b>' +
+                (c.ts ? ' <small>(' + fmtDate(c.ts) + ')</small>' : '') +
+              '</div>') :
+              '<div class="eval-status-pill none">⏳ لم يُسجَّل تقييم هذا الطالب بعد</div>'
+            ) +
+            (locked ?
+              '<span class="eval-lock-note">🔒 مُسجّل بواسطة معلم آخر (للقراءة فقط)</span>' :
+              ''
+            ) +
+          '</div>' +
+        '</div>';
+      });
+
+      $("visible-count").textContent = visibleTotal;
+      $("student-list").innerHTML = html || '<div class="empty-state">لا توجد نتائج مطابقة لبحثك أو الفلاتر المحددة</div>';
+    }
+
+    // Handle Decision Click
+    $("student-list").addEventListener("click", async function(e) {
+      var btn = e.target.closest("button.btn-decision");
+      if (!btn || btn.disabled) return;
+
+      var id = btn.dataset.id;
+      var decision = btn.dataset.d;
+      if (!id || !decision || busy[id]) return;
+
+      var cur = choices[id];
+      // Prevent redundant click
+      if (cur && cur.teacher === teacher && cur.decision === decision) return;
+
+      busy[id] = true;
+      $("global-alert").classList.add("hide");
+      render();
+
+      try {
+        await apiRequest("POST", { id: id, decision: decision, teacher: teacher });
+        choices[id] = { decision: decision, teacher: teacher, ts: Date.now() };
+        showToast("تم حفظ التقييم بنجاح", "success");
+      } catch (err) {
+        if (err.status === 409) {
+          var lockedBy = (err.info && err.info.by) || "معلم آخر";
+          $("global-alert").textContent = "تم تسجيل هذا الطالب قبل لحظات بواسطة الأستاذ(ة) " + lockedBy;
+          $("global-alert").classList.remove("hide");
+          showToast("تم تسجيل الطالب بواسطة " + lockedBy, "error");
+        } else if (err.status === 401) {
+          $("global-alert").textContent = "كود المعلمين غير صحيح أو انتهت صلاحيته.";
+          $("global-alert").classList.remove("hide");
+        } else {
+          $("global-alert").textContent = "تعذر حفظ التقييم، يرجى المحاولة مرة أخرى.";
+          $("global-alert").classList.remove("hide");
+        }
+      }
+
+      delete busy[id];
+      try {
+        await loadChoices();
+      } catch (x) {
+        render();
+      }
+    });
+
+    // Auto-login if credentials exist in localStorage
+    (async function init() {
+      if (savedName && savedCode) {
+        teacher = savedName;
+        code = savedCode;
+        try {
+          await loadChoices();
+          enterDashboard();
+        } catch (e) {
+          // If auto login fails (e.g. invalid code), return to login screen
+          teacher = null;
+          code = null;
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
