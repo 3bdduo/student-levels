@@ -5,18 +5,15 @@
 ### 1. رفع الملفات على GitHub
 
 1. افتح **GitHub.com** وسجّل دخول
-2. اضغط **New Repository**
-3. اسم الريبو: مثلاً `rihanat-al-madina`
-4. اختار **Public** أو **Private**، ثم اضغط **Create repository**
-5. في صفحة الريبو، اضغط **Add file → Upload files**
-6. ارفع كل الملفات الموجودة في فولدر `student-levels`:
+2. الريبو الحالي: `https://github.com/3bdduo/student-levels.git`
+3. الملفات المرفوعة:
    - `index.html`
+   - `vercel.json`
    - `package.json`
    - `manifest.json`
    - `icon-512.png`
-   - فولدر `api/` كاملاً (choices.js)
-   - فولدر `public/` كاملاً (icon-512.png)
-7. اضغط **Commit changes**
+   - فولدر `api/` (choices.js)
+
 
 ---
 
